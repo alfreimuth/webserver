@@ -8,7 +8,7 @@
 
     const url = (() => {
         if(searchType === 'pokemon') return `/api/v1/pokemon/${id}`
-        if(searchType === 'type') return `/api/v1/random-pokemon/type/${id}`
+        if(searchType === 'type') return `/api/v1/pokemon/type/${id}`
         return '/api/v1/random-pokemon'
     })
     const result = await fetch(url)
