@@ -1,19 +1,13 @@
 
-// const path = require('path')
 const express = require('express')
 
 const app = express()
 const port = 3000
 
-
-// allow us to send JSON
 app.use(express.json())
-// allow us to respond with static webpages
 app.use(express.static('public'))
 
+app.use('/', require('./public-endpoints'))
+app.use('/api/v1/pokemon', require('./api/v1/pokemon'))
 
-// attach endpoints
-app.use(require('./routes/static'))
-app.use('/api/v1/pokemon', require('./routes/api/v1/pokemon'))
-
-app.listen(port, () => console.log(`http://localhost:${port}/`))
+app.listen(port, () => console.log(`Running: http://localhost:${port}`))
